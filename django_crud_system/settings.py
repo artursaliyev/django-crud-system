@@ -26,11 +26,13 @@ SECRET_KEY = 'c7-qdny7046us!-3__^n#jr2ygrrw2ajozt*aa1ea#ndfz1ail'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+INTERNAL_IPS = ['127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'debug_toolbar',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -108,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-en'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -122,7 +125,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
@@ -131,6 +133,6 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static_files")
-MEDIA_ROOT = os.path.join(BASE_DIR, "media_files")
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 

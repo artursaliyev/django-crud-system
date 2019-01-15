@@ -19,6 +19,7 @@ class Book(models.Model):
     pages = models.IntegerField(blank=True, null=True)
     book_type = models.PositiveSmallIntegerField(choices=BOOK_TYPES)
     timestamp = models.DateField(auto_now_add=True, auto_now=False)
+    tags = models.ManyToManyField('Tags', related_name='books')
 
     def __str__(self):
         return self.title
@@ -29,4 +30,7 @@ class Book(models.Model):
     class Meta:
         ordering = ['-id']
 
+
+class Tags(models.Model):
+    name = models.CharField(max_length=100)
 
